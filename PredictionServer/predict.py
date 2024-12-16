@@ -49,11 +49,12 @@ def run_model_distilled(embed_dataloader, args, prediction_type, test_df):
     opts.intra_op_num_threads = args.NUM_THREADS
     opts.inter_op_num_threads = args.NUM_THREADS
     opts.execution_mode = onnxruntime.ExecutionMode.ORT_SEQUENTIAL
-    
+    providers = ["CUDAExecutionProvider", "CPUExecutionProvider"] if torch.cuda.is_available() else ["CPUExecutionProvider"]
+
     # Adjust session options
     model_paths = [os.path.join(args.MODELS_PATH,
       f"{prediction_type}_ESM1b_distilled_quantized.onnx")]
-    ort_sessions = [onnxruntime.InferenceSession(mp, sess_options=opts) for mp in model_paths]
+    ort_sessions = [onnxruntime.InferenceSession(mp, sess_options=opts, providers=providers) for mp in model_paths]
 
     embed_dict = {}
     inputs_names = ort_sessions[0].get_inputs()

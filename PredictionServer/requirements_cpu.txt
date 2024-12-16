@@ -1,6 +1,5 @@
 torch>=1.6
 onnxruntime>=1.7.0
-onnxruntime-gpu
 numpy
 pandas
 fair-esm
