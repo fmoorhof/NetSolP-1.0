@@ -20,6 +20,21 @@ python predict.py --FASTA_PATH ./test_fasta.fasta --OUTPUT_PATH ./test_preds.csv
 ```
 more details and requirements in the README of folder PredictionServer.
 
+## Install as package
+
+You can install this repository as an editable package and import it as `netsolp`:
+
+```bash
+pip install -e .
+```
+
+After installing you can import utilities like:
+
+```python
+import netsolp
+netsolp.get_preds  # function to run predictions via PredictionServer
+```
+
 ## License
 
 The code is licensed under the [BSD 3-Clause license](https://github.com/TviNet/NetSolP-1.0/blob/main/LICENSE).
