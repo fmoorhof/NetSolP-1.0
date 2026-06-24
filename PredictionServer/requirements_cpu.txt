@@ -1,5 +1,6 @@
 torch>=1.6
+torchvision==0.27.1
 onnxruntime>=1.7.0
 numpy
 pandas
-fair-esm
+fair-esm==0.2.0
