@@ -4,13 +4,15 @@
 # This source code is licensed under the BSD-style license found in the
 # LICENSE file in the root directory of this source tree. 
 import onnxruntime
-from data import *
 import os
 import pickle
 import argparse
 import pandas as pd
 import time
 import numpy as np
+import torch
+
+from PredictionServer.data import FastaBatchedDataset, BatchConverter, read_fasta
 
 def sigmoid(x): return 1 / (1 + np.exp(-x))
 

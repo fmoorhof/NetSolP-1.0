@@ -2,7 +2,7 @@ Solubility / Usability prediction server
 
 For installing required packages use (for inference on CPU or GPU, respectively):
 pip install -r requirements_cpu.txt
-pip install -r requirements_gpu.txt
+pip install -r requirements_gpu.txt --extra-index-url https://download.pytorch.org/whl/cu126
 
 All models go into models/
 Model name format: {PREDICTION_TYPE}_{MODEL_TYPE}_{Fold number 0-4}_quantized.onnx
